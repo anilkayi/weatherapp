@@ -13,7 +13,7 @@ class WeatherData {
         'https://api.openweathermap.org/data/2.5/weather?lat=40.0006&lon=32.5283&appid=${apikey}&units=metric');
     var response = await get(url);
     var body = jsonDecode(response.body);
-    print('${response.body}');
+    //print('${response.body}');
     return WeatherApi.fromMap(body);
   }
 }
