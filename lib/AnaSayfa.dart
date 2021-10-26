@@ -58,55 +58,59 @@ class _AnaSayfaState extends State<AnaSayfa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/icons/images/a.jpg'),
-                fit: BoxFit.cover),
-          ),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SearchCity()));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Search City...',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Icon(
-                        Icons.search,
-                        color: Colors.white,
-                      )
-                    ],
-                  )),
-              buildgetCurrentFuture(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color: Colors.black45),
-                  child: getFutureDailyTemp(),
+      body: SingleChildScrollView(
+        child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/icons/images/a.jpg'),
+                  fit: BoxFit.cover),
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
                 ),
-              )
-            ],
-          )),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SearchCity()));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Search City...',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        )
+                      ],
+                    )),
+                buildgetCurrentFuture(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
+                        color: Colors.black45),
+                    child: getFutureDailyTemp(),
+                  ),
+                )
+              ],
+            )),
+      ),
     );
   }
 
