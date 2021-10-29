@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapp/AnaSayfa.dart';
+import 'package:provider/provider.dart';
+import 'package:weatherapp/UI/anasayfa_page/AnaSayfa.dart';
+import 'package:weatherapp/UI/anasayfa_page/anasayfa_vm.dart';
+
+import 'package:weatherapp/UI/city_page/city_vm.dart';
 
 void main() {
-  runApp(MyApp());
+  String city;
+
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => HomeVm(context: context)),
+    ChangeNotifierProvider(
+        create: (context) => CityVm('Ankara', context: context))
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
